@@ -2,15 +2,6 @@ import { useEffect, useState } from "react";
 import { v4 } from "uuid";
 
 function TaskForm({ tasks, setTasks }) {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    const saveTasks = localStorage.getItem("tasks");
-
-    saveTasks ? setTasks(JSON.parse(saveTasks)) : [];
-    setIsLoaded(true);
-  }, []);
-
   const [title, setTitle] = useState("");
   function onSubmmitTask(title) {
     const newTaskAdd = {
@@ -27,29 +18,23 @@ function TaskForm({ tasks, setTasks }) {
     setTitle("");
   }
 
-  useEffect(() => {
-    if (!isLoaded) {
-      //se for false não continua
-      return;
-    }
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks, isLoaded]);
-
   const pendentTasks = tasks.filter(
     (task) => task.isCompleted === false,
   ).length;
+
   useEffect(() => {
     document.title = `TaskMaster (${pendentTasks} pendentes)`;
   }, [pendentTasks]);
+
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-amber-100  flex flex-col gap-2 py-7 p-5"
+      className="bg-amber-100 dark:bg-amber-500 flex flex-col gap-2 py-7 p-5"
     >
       <input
         type="text"
         placeholder="Digite sua tarefa..."
-        className="border border-black rounded-md px-4 py-2 "
+        className="border border-black dark:border-slate-400 rounded-md px-4 py-2 "
         value={title}
         onChange={
           (event) =>
@@ -58,7 +43,7 @@ function TaskForm({ tasks, setTasks }) {
             ) /**"valor do input que o usuário acabou de editar" */
         }
       />
-      <button className="border border-black bg-amber-300 rounded-md py-1">
+      <button className="border border-black dark:border-slate-400 bg-amber-300 dark:bg-amber-700 rounded-md py-1">
         Adicionar
       </button>
     </form>

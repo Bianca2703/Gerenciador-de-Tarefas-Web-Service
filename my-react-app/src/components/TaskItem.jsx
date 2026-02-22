@@ -1,4 +1,4 @@
-function TaskItem({ tasks, setTasks, onTaskClick, onDeletedClick }) {
+function TaskItem({ tasks, setTasks }) {
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
       if (task.id === taskId) {
@@ -20,7 +20,7 @@ function TaskItem({ tasks, setTasks, onTaskClick, onDeletedClick }) {
       {tasks.map((task) => (
         <li
           key={task.id}
-          className="flex gap-1 border border-slate-500 rounded-md py-3 bg-amber-200"
+          className="flex gap-1 border border-slate-500 dark:border-slate-600 rounded-md py-3 bg-amber-200 dark:bg-amber-600"
         >
           <p
             className={`w-full  ${task.isCompleted == true ? "line-through" : ""}`}
