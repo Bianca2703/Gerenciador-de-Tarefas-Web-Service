@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import TaskItem from "./TaskItem";
 import { useContext } from "react";
-import { GlobalContext } from "./Contexts/GlobalContext";
+import { GlobalContext } from "../Contexts/GlobalContext";
 
 function TaskList() {
   const { tasks, setTasks } = useContext(GlobalContext);

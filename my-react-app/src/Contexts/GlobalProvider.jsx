@@ -1,5 +1,5 @@
 import { GlobalContext } from "./GlobalContext";
-import { Children, useState } from "react";
+import { useState } from "react";
 
 function GlobalProvider({ children }) {
   const [tasks, setTasks] = useState([]);

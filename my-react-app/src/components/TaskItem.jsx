@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { GlobalContext } from "./Contexts/GlobalContext";
+import { GlobalContext } from "../Contexts/GlobalContext";
 
 function TaskItem() {
   const { tasks, setTasks } = useContext(GlobalContext);

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { GlobalContext } from "./Contexts/GlobalContext";
+import { GlobalContext } from "../Contexts/GlobalContext";
 
 function StatusHeader() {
   const { tasks } = useContext(GlobalContext);

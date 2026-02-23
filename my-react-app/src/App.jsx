@@ -3,9 +3,9 @@ import "./App.css";
 import TaskItem from "./components/TaskItem";
 import TaskForm from "./components/TaskForm";
 import Header from "./components/Header";
-import ThemeProvider from "./components/Contexts/ThemeProvider";
+import ThemeProvider from "./Contexts/ThemeProvider";
 import TaskList from "./components/TaskList";
-import GlobalProvider from "./components/Contexts/GlobalProvider";
+import GlobalProvider from "./Contexts/GlobalProvider";
 import StatusHeader from "./components/StatusHeader";
 
 function App() {
