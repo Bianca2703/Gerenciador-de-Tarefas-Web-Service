@@ -1,4 +1,9 @@
-function TaskItem({ tasks, setTasks }) {
+import { useContext } from "react";
+import { GlobalContext } from "./Contexts/GlobalContext";
+
+function TaskItem() {
+  const { tasks, setTasks } = useContext(GlobalContext);
+
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
       if (task.id === taskId) {

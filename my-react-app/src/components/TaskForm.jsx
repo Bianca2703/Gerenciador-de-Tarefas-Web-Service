@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { v4 } from "uuid";
+import { useContext } from "react";
+import { GlobalContext } from "./Contexts/GlobalContext";
 
-function TaskForm({ tasks, setTasks }) {
+function TaskForm() {
+  const { tasks, setTasks } = useContext(GlobalContext);
+
   const [title, setTitle] = useState("");
   function onSubmmitTask(title) {
     const newTaskAdd = {

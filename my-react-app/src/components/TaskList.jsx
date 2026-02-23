@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import TaskItem from "./TaskItem";
+import { useContext } from "react";
+import { GlobalContext } from "./Contexts/GlobalContext";
 
-function TaskList({ tasks, setTasks }) {
+function TaskList() {
+  const { tasks, setTasks } = useContext(GlobalContext);
+
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -19,7 +23,7 @@ function TaskList({ tasks, setTasks }) {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks, isLoaded]);
 
-  return <TaskItem tasks={tasks} setTasks={setTasks} />;
+  return <TaskItem />;
 }
 
 export default TaskList;
