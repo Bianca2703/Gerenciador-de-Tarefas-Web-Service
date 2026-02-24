@@ -7,6 +7,11 @@ import ThemeProvider from "./Contexts/ThemeProvider";
 import TaskList from "./components/TaskList";
 import GlobalProvider from "./Contexts/GlobalProvider";
 import StatusHeader from "./components/StatusHeader";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+//import Projects from "./pages/Projects";
+//import Completed from "./pages/Completed";
+import About from "./pages/About";
 
 function App() {
   //const [tasks, setTasks] = useState([]);
@@ -15,15 +20,17 @@ function App() {
     <ThemeProvider>
       <GlobalProvider>
         <div className="space-y-3 dark:bg-slate-900">
-          <StatusHeader />
-          <Header />
-          <div className="flex flex-col p-6 space-y-4 shadow dark:bg-slate-800">
-            <h1 className="text-2xl dark:text-white">Gerenciador de Tarefas</h1>
-            <TaskForm />
-            <div className="bg-amber-100 dark:bg-amber-500 p-5">
-              <TaskList />
-            </div>
-          </div>
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              {/*<Route path="/projects" element={<Projects />} />
+              <Route path="/completed" element={<Completed />} />
+              <Route path="/projects/:id" element={<Projects />} />
+              */}
+              <Route path="/about" element={<About />} />
+            </Routes>
+          </BrowserRouter>
         </div>
       </GlobalProvider>
     </ThemeProvider>
