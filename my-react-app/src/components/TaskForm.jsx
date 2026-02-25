@@ -7,6 +7,7 @@ function TaskForm() {
   const { tasks, setTasks } = useContext(GlobalContext);
   const [title, setTitle] = useState("");
 
+  //Cria nova tarefa e muda o estado
   function onSubmmitTask(title) {
     //chamada dentro do hanldesubmit
     const newTaskAdd = {
@@ -17,19 +18,22 @@ function TaskForm() {
     setTasks([...tasks, newTaskAdd]);
   }
 
+  //Impede comportamento padrão do form de recarregar a página
   function handleSubmit(event) {
     event.preventDefault();
     onSubmmitTask(title);
     setTitle("");
   }
 
-  const pendentTasks = tasks.filter(
+  //Quantidade de tarefas pendentes
+  const pendingTasks = tasks.filter(
     (task) => task.isCompleted === false,
   ).length;
 
+  //Responsável por mudar o título da página cada vez que pendingTasks mudar
   useEffect(() => {
-    document.title = `TaskMaster (${pendentTasks} pendentes)`;
-  }, [pendentTasks]);
+    document.title = `TaskMaster (${pendingTasks} pendentes)`;
+  }, [pendingTasks]);
 
   return (
     <form

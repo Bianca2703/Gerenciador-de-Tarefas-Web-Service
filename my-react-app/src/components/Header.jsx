@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { ThemeContext } from "../Contexts/ThemeContext";
-import StatusHeader from "./StatusHeader";
 import { FaRegSun } from "react-icons/fa";
 import { FaRegMoon } from "react-icons/fa";
 import { NavLink } from "react-router-dom";

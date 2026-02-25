@@ -14,6 +14,7 @@ function ProjectForm() {
     setTitle("");
   }
 
+  //Adiciona novo Projeto e muda estado de projects
   function onAddClick() {
     const newProjectAdd = {
       id: v4(),

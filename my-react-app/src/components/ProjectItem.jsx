@@ -4,6 +4,7 @@ import { GlobalContext } from "../Contexts/GlobalContext";
 function ProjectItem({ project }) {
   const { projects, setProjects } = useContext(GlobalContext);
 
+  //Muta o isCompleted, marcando como projeto concluído
   function onProjectDoneClick(projectId) {
     const newProjects = projects.map((project) => {
       if (projectId === project.id) {
@@ -14,6 +15,7 @@ function ProjectItem({ project }) {
     setProjects(newProjects);
   }
 
+  //Deleta projeto
   function onDeletedClick(projectId) {
     const newProjects = projects.filter((project) => project.id !== projectId);
     setProjects(newProjects);
