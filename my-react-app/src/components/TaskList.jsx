@@ -8,6 +8,7 @@ function TaskList() {
 
   const [isLoaded, setIsLoaded] = useState(false);
 
+  //recupera os itens
   useEffect(() => {
     const saveTasks = localStorage.getItem("tasks");
 
@@ -15,6 +16,7 @@ function TaskList() {
     setIsLoaded(true);
   }, []);
 
+  //salva os itens
   useEffect(() => {
     if (!isLoaded) {
       //se for false não continua

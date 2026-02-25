@@ -5,9 +5,10 @@ import { GlobalContext } from "../Contexts/GlobalContext";
 
 function TaskForm() {
   const { tasks, setTasks } = useContext(GlobalContext);
-
   const [title, setTitle] = useState("");
+
   function onSubmmitTask(title) {
+    //chamada dentro do hanldesubmit
     const newTaskAdd = {
       id: v4(),
       title,
@@ -47,8 +48,13 @@ function TaskForm() {
             ) /**"valor do input que o usuário acabou de editar" */
         }
       />
-      <button className="border border-black dark:border-slate-400 bg-amber-300 dark:bg-amber-700 rounded-md py-1">
-        Adicionar
+      <button
+        type="submit"
+        className="border border-black dark:border-slate-400 bg-amber-300 dark:bg-amber-700 rounded-md py-1"
+      >
+        Adicionar{" "}
+        {/*Não precisa do onClick com a função por que quem está controlando o envio é o form*/}
+        {/*Ao clicar, o form é submetido e handleSubmit roda */}
       </button>
     </form>
   );

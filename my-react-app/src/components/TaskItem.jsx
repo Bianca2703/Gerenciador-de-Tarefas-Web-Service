@@ -4,6 +4,7 @@ import { GlobalContext } from "../Contexts/GlobalContext";
 function TaskItem() {
   const { tasks, setTasks } = useContext(GlobalContext);
 
+  //Marca tarefa como feita
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
       if (task.id === taskId) {
@@ -14,6 +15,7 @@ function TaskItem() {
     setTasks(newTasks);
   }
 
+  //Deleta tarefa
   function onDeletedClick(taskId) {
     //mantém só as tarefas cujo id é diferente do id que eu quero deletar
     const newTasks = tasks.filter((task) => task.id != taskId);
