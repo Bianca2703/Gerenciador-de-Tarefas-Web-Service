@@ -4,28 +4,14 @@ import { useContext } from "react";
 import { GlobalContext } from "../Contexts/GlobalContext";
 
 function TaskList() {
-  const { tasks, setTasks } = useContext(GlobalContext);
+  const { tasks } = useContext(GlobalContext);
 
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  //recupera os itens
-  useEffect(() => {
-    const saveTasks = localStorage.getItem("tasks");
-
-    saveTasks ? setTasks(JSON.parse(saveTasks)) : [];
-    setIsLoaded(true);
-  }, []);
-
-  //salva os itens
-  useEffect(() => {
-    if (!isLoaded) {
-      //se for false não continua
-      return;
-    }
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks, isLoaded]);
-
-  return <TaskItem />;
+  return (
+    <ul>
+      {tasks.map((task) => (
+        <TaskItem key={task.id} task={task} />
+      ))}
+    </ul>
+  );
 }
-
 export default TaskList;
