@@ -19,10 +19,18 @@ function GlobalProvider({ children }) {
 
   //Deleta tarefa
   function onDeletedClick(taskId) {
-    //mantém só as tarefas cujo id é diferente do id que eu quero deletar
-    const newTasks = tasks.filter((task) => task.id != taskId);
+    const newTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return { ...task, isDeleted: !task.isDeleted };
+      }
+      return task;
+    });
     setTasks(newTasks);
-  }
+    }
+
+    //mantém só as tarefas cujo id é diferente do id que eu quero deletar
+    /*const newTasks = tasks.filter((task) => task.id != taskId);
+    setTasks(newTasks);*/
 
   //recupera os itens
   useEffect(() => {
@@ -43,7 +51,14 @@ function GlobalProvider({ children }) {
 
   return (
     <GlobalContext.Provider
-      value={{ tasks, projects, setProjects, onTaskClick, onDeletedClick }}
+      value={{
+        tasks,
+        setTasks,
+        projects,
+        setProjects,
+        onTaskClick,
+        onDeletedClick,
+      }}
     >
       {children}
     </GlobalContext.Provider>

@@ -3,25 +3,27 @@ import { v4 } from "uuid";
 import { useContext } from "react";
 import { GlobalContext } from "../Contexts/GlobalContext";
 
-function TaskForm() {
+function TaskForm({ projectId }) {
   const { tasks, setTasks } = useContext(GlobalContext);
   const [title, setTitle] = useState("");
 
   //Cria nova tarefa e muda o estado
-  function onSubmmitTask(title) {
+  function onSubmitTask(title) {
     //chamada dentro do hanldesubmit
     const newTaskAdd = {
       id: v4(),
       title,
       isCompleted: false,
+      isDeleted: false,
+      ...(projectId && { projectId }), //Só adiciona projectId se existir
     };
-    setTasks([...tasks, newTaskAdd]);
+    setTasks((prevTasks) => [...prevTasks, newTaskAdd]);
   }
 
   //Impede comportamento padrão do form de recarregar a página
   function handleSubmit(event) {
     event.preventDefault();
-    onSubmmitTask(title);
+    onSubmitTask(title);
     setTitle("");
   }
 

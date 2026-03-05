@@ -1,15 +1,10 @@
-import { useState, useEffect } from "react";
 import TaskItem from "./TaskItem";
-import { useContext } from "react";
-import { GlobalContext } from "../Contexts/GlobalContext";
 
-function TaskList() {
-  const { tasks } = useContext(GlobalContext);
-
+function TaskList({tasks, showActions}) { //recebe a lista filtrada de cada componente que renderiza taskList
   return (
     <ul>
       {tasks.map((task) => (
-        <TaskItem key={task.id} task={task} />
+        <TaskItem key={task.id} task={task} showActions={showActions}/>
       ))}
     </ul>
   );

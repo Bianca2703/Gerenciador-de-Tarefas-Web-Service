@@ -9,7 +9,7 @@ function Header() {
 
   return (
     <header className="bg-amber-100 dark:bg-amber-500  dark:text-white w-full py-10">
-      <h1>Gerencie tarefas e projetos</h1>
+      <h1 className="text-2xl">Gerencie tarefas e projetos</h1>
       <nav className="flex justify-around">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/projects">Projetos</NavLink>

@@ -28,7 +28,7 @@ function ProjectItem({ project }) {
       className="flex gap-1 border border-slate-500 dark:border-slate-600 rounded-md py-3 bg-amber-200 dark:bg-amber-600"
     >
       <Link
-        to="/projects/id"
+        to={`/projects/${project.id}`}
         className={`w-full  ${project.isCompleted == true ? "line-through" : ""}`}
       >
         {project.title}
