@@ -53,7 +53,19 @@ function TaskForm({ projectId }) {
               event.target.value,
             ) /**"valor do input que o usuário acabou de editar" */
         }
+        
       />
+
+      <input type="text"
+      placeholder="Descrição"
+      className="border border-black dark:border-slate-400 rounded-md px-4 py-2 "
+      />
+
+      <input type="text"
+      placeholder="Categoria"
+      className="border border-black dark:border-slate-400 rounded-md px-4 py-2 "
+       />
+
       <button
         type="submit"
         className="border border-black dark:border-slate-400 bg-amber-300 dark:bg-amber-700 rounded-md py-1"
