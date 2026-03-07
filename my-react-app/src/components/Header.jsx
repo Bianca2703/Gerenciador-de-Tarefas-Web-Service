@@ -15,6 +15,7 @@ function Header() {
         <NavLink to="/projects">Projetos</NavLink>
         <NavLink to="/completed">Feitos</NavLink>
         <NavLink to="/about">Sobre</NavLink>
+        <NavLink to="/statistics">Estatísticas</NavLink>
       </nav>
       <button
         onClick={() => {

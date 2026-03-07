@@ -4,6 +4,7 @@ import Projects from "./pages/Projects";
 import Completed from "./pages/Completed";
 import About from "./pages/About";
 import ProjectsDetails from "./pages/ProjectsDetails";
+import Statistics from "./pages/Statistics";
 
 function AppRoutes() {
   return (
@@ -13,6 +14,7 @@ function AppRoutes() {
       <Route path="/projects/:id" element={<ProjectsDetails />} />
       <Route path="/completed" element={<Completed />} />
       <Route path="/about" element={<About />} />
+      <Route path="/statistics" element={<Statistics />} />
     </Routes>
   );
 }
