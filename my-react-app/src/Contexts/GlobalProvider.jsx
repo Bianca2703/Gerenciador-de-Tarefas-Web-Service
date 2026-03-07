@@ -26,21 +26,29 @@ function GlobalProvider({ children }) {
       return task;
     });
     setTasks(newTasks);
-    }
+  }
 
-    //mantém só as tarefas cujo id é diferente do id que eu quero deletar
-    /*const newTasks = tasks.filter((task) => task.id != taskId);
+  //mantém só as tarefas cujo id é diferente do id que eu quero deletar
+  /*const newTasks = tasks.filter((task) => task.id != taskId);
     setTasks(newTasks);*/
 
   //recupera os itens
   useEffect(() => {
     const saveTasks = localStorage.getItem("tasks");
+    const savedProject = localStorage.getItem("projects");
 
-    saveTasks ? setTasks(JSON.parse(saveTasks)) : [];
+    if (saveTasks) {
+      setTasks(JSON.parse(saveTasks));
+    }
+
+    if (savedProject) {
+      setProjects(JSON.parse(savedProject));
+    } //se savedProject existir, então execute setproject. Se não, não faça nada.
+
     setIsLoaded(true);
   }, []);
 
-  //salva os itens
+  //salva as tasks
   useEffect(() => {
     if (!isLoaded) {
       //se for false não continua
@@ -48,6 +56,14 @@ function GlobalProvider({ children }) {
     }
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks, isLoaded]);
+
+  //salva os itens todas vez que projects e isLoaded mudar
+  useEffect(() => {
+    if (!isLoaded) {
+      return;
+    }
+    localStorage.setItem("projects", JSON.stringify(projects));
+  }, [projects, isLoaded]);
 
   return (
     <GlobalContext.Provider
