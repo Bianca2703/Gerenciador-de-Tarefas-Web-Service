@@ -6,17 +6,17 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-function TaskForm({ projectId }) {
+function TaskForm({ mode, projectId, taskId }) {
   const { tasks, setTasks } = useContext(GlobalContext);
-  const [sucess, setSucess] = useState(false);
+  const [message, setMessage] = useState("");
 
   const schema = z.object({
-    titulo: z.string().min(3, "Mínimo 3 caracteres"),
-    descricao: z
+    title: z.string().min(3, "Mínimo 3 caracteres"),
+    description: z
       .string()
       .min(1, "Descrição insuficiente")
       .max(200, "Máximo 200 caracteres"),
-    categoria: z.enum(
+    category: z.enum(
       ["trabalho", "pessoal", "estudo"],
       "Escolha uma das opções válidas",
     ),
@@ -34,16 +34,17 @@ function TaskForm({ projectId }) {
     reValidateMode: "onChange",
   }); //valida quando o usuário sai do campo
 
-  const onSubmit = (data) => onSubmitTask(data);
+  const onSubmit = (data) =>
+    mode === "edit" ? editTask(data) : onSubmitTask(data);
 
   //Cria nova tarefa e muda o estado
   function onSubmitTask(data) {
     //chamada dentro do hanldesubmit
     const newTaskAdd = {
       id: v4(),
-      title: data.titulo,
-      descricao: data.descricao,
-      categoria: data.categoria,
+      title: data.title,
+      description: data.description,
+      category: data.category,
       isCompleted: false,
       isDeleted: false,
       createdAt: new Date(),
@@ -51,15 +52,15 @@ function TaskForm({ projectId }) {
       ...(projectId && { projectId }), //Só adiciona projectId se existir
     };
     setTasks((prevTasks) => [...prevTasks, newTaskAdd]);
-    setSucess(true);
+    setMessage("Tarefa criada com sucesso");
     reset();
 
     setTimeout(() => {
-      setSucess(false);
+      setMessage("");
     }, 2000);
   }
 
-  const descricaoValue = watch("descricao", "");
+  const descriptionValue = watch("description", "");
 
   //Quantidade de tarefas pendentes
   const pendingTasks = tasks.filter(
@@ -71,51 +72,87 @@ function TaskForm({ projectId }) {
     document.title = `TaskMaster (${pendingTasks} pendentes)`;
   }, [pendingTasks]);
 
+  //ATUALIZAR TAREFA
+  function editTask(data) {
+    const editedtask = tasks.map((task) => {
+      if (task.id === taskId) {
+        const title = data.title;
+        const description = data.description;
+        const category = data.category;
+        return { ...task, title, description, category };
+      } else return task;
+    });
+    setTasks(editedtask);
+    setMessage("Tarefa atualizada com sucesso");
+    reset(); //navigate(-1)
+
+    setTimeout(() => {
+      setMessage("");
+    }, 2000);
+  }
+
+  useEffect(() => {
+    if (mode === "edit") {
+      const task = tasks.find((task) => task.id === taskId);
+
+      console.log("TASK ENCONTRADA:", task);
+      if (task) {
+        reset({
+          title: task.title,
+          description: task.description,
+          category: task.category,
+        });
+      }
+    }
+  }, [mode, taskId, tasks, reset]);
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="bg-amber-100 dark:bg-amber-500 flex flex-col gap-2 py-7 p-5"
     >
       <input
-        {...register("titulo")}
+        {...register("title")}
         type="text"
         placeholder="Digite sua tarefa..."
         className={`border rounded-md px-4 py-2
           ${
-            errors.titulo
+            errors.title
               ? "border-red-500 focus:ring-2 focus:ring-red-400"
               : "border-black dark:border-slate-400"
           } `}
       />
-      {errors.titulo && (
-        <p className="text-red-500 bg-red-500/20">{errors.titulo.message}</p>
+      {errors.title && (
+        <p className="text-red-500 bg-red-500/20">{errors.title.message}</p>
       )}
 
       <div className="flex justify-between text-sm text-gray-500">
         <span>Descrição</span>
-        <span>{descricaoValue.length}/200</span>
+        <span>{descriptionValue.length}/200</span>
       </div>
       <textarea
-        {...register("descricao")}
+        {...register("description")}
         rows="3"
         cols="40"
         placeholder="Descrição"
         className={`border rounded-md px-4 py-2
           ${
-            errors.descricao
+            errors.description
               ? "border-red-500 focus:ring-2 focus:ring-red-400"
               : "border-black dark:border-slate-400"
           } `}
       />
-      {errors.descricao && (
-        <p className="text-red-500 bg-red-500/20">{errors.descricao.message}</p>
+      {errors.description && (
+        <p className="text-red-500 bg-red-500/20">
+          {errors.description.message}
+        </p>
       )}
 
       <select
-        {...register("categoria")}
+        {...register("category")}
         className={`border rounded-md px-4 py-2
           ${
-            errors.categoria
+            errors.category
               ? "border-red-500 focus:ring-2 focus:ring-red-400"
               : "border-black dark:border-slate-400"
           } `}
@@ -125,13 +162,13 @@ function TaskForm({ projectId }) {
         <option value="pessoal">Pessoal</option>
         <option value="estudo">Estudo</option>
       </select>
-      {errors.categoria && (
-        <p className="text-red-500 bg-red-500/20">{errors.categoria.message}</p>
+      {errors.category && (
+        <p className="text-red-500 bg-red-500/20">{errors.category.message}</p>
       )}
 
-      {sucess && (
+      {message && (
         <p className="text-green-600 bg-green-100 border border-green-300 rounded p-2 text-sm">
-          Projeto criado com sucesso
+          {message}
         </p>
       )}
 
@@ -139,7 +176,7 @@ function TaskForm({ projectId }) {
         type="submit"
         className="border border-black dark:border-slate-400 bg-amber-300 dark:bg-amber-700 rounded-md py-1"
       >
-        Adicionar{" "}
+        {mode === "edit" ? <p>Atualizar</p> : <p>Adicionar</p>}
         {/*Não precisa do onClick com a função por que quem está controlando o envio é o form*/}
         {/*Ao clicar, o form é submetido e handleSubmit roda */}
       </button>
