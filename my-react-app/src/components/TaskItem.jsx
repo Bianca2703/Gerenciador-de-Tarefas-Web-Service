@@ -1,37 +1,41 @@
 import { useContext } from "react";
 import { GlobalContext } from "../Contexts/GlobalContext";
+import { FaRegEdit } from "react-icons/fa";
+import { MdOutlineDone } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 
 function TaskItem({ task, showActions = true }) {
   const { onTaskClick, onDeletedClick } = useContext(GlobalContext);
 
   return (
-    <li
-      className="flex gap-1 border border-slate-500 dark:border-slate-600 rounded-md py-3 bg-amber-200 dark:bg-amber-600"
-    >
-      <p
-        className={`w-full  ${task.isCompleted == true ? "line-through" : ""}`}
-      >
+    <li className="flex items-center border border-slate-500 dark:border-slate-600 rounded-md py-3 px-4 bg-amber-200 dark:bg-amber-600">
+      <button className="mr-6">
+        <FaRegEdit />
+      </button>
+      <p className={`${task.isCompleted == true ? "line-through" : ""}`}>
         {task.title}
       </p>
+
       {showActions && (
-        <>
-        <button
-        className="w-1/5"
-        onClick={() => {
-          onTaskClick(task.id);
-        }}
-      >
-        V
-      </button>
-      <button
-        className="w-1/5"
-        onClick={() => {
-          onDeletedClick(task.id);
-        }}
-      >
-        X
-      </button>
-      </>)}
+        <div className="flex gap-2 ml-auto">
+          <button
+            className="mr-3"
+            onClick={() => {
+              onTaskClick(task.id);
+            }}
+          >
+            <MdOutlineDone />
+          </button>
+          <button
+            className="mr-2"
+            onClick={() => {
+              onDeletedClick(task.id);
+            }}
+          >
+            <MdDelete />
+          </button>
+        </div>
+      )}
     </li>
   );
 }
