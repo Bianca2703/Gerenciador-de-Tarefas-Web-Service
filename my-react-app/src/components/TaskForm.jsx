@@ -46,6 +46,8 @@ function TaskForm({ projectId }) {
       categoria: data.categoria,
       isCompleted: false,
       isDeleted: false,
+      createdAt: new Date(),
+      completedAt: null,
       ...(projectId && { projectId }), //Só adiciona projectId se existir
     };
     setTasks((prevTasks) => [...prevTasks, newTaskAdd]);

@@ -10,7 +10,14 @@ function GlobalProvider({ children }) {
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
       if (task.id === taskId) {
-        return { ...task, isCompleted: !task.isCompleted };
+        //É essa a tarefa clicada?
+        const isCompletedNow = !task.isCompleted;
+
+        return {
+          ...task,
+          isCompleted: isCompletedNow,
+          completedAt: isCompletedNow ? new Date() : null,
+        };
       }
       return task;
     });
