@@ -1,6 +1,9 @@
 import { useContext } from "react";
 import { GlobalContext } from "../Contexts/GlobalContext";
 import { Link } from "react-router-dom";
+import { FaRegEdit } from "react-icons/fa";
+import { MdOutlineDone } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 
 function ProjectItem({ project }) {
   const { projects, setProjects } = useContext(GlobalContext);
@@ -25,30 +28,37 @@ function ProjectItem({ project }) {
   return (
     <li
       key={project.id}
-      className="flex gap-1 border border-slate-500 dark:border-slate-600 rounded-md py-3 bg-amber-200 dark:bg-amber-600"
+      className="flex items-center border border-slate-500 dark:border-slate-600 rounded-md py-3 px-4 bg-amber-200 dark:bg-amber-600"
     >
+      <Link className="mr-6" to={`/edit/${project.id}`}>
+        <FaRegEdit />
+      </Link>
+
       <Link
         to={`/projects/${project.id}`}
-        className={`w-full  ${project.isCompleted == true ? "line-through" : ""}`}
+        className={` ${project.isCompleted == true ? "line-through" : ""}`}
       >
         {project.title}
       </Link>
-      <button
-        className="w-1/5"
-        onClick={() => {
-          onProjectDoneClick(project.id);
-        }}
-      >
-        V
-      </button>
-      <button
-        className="w-1/5"
-        onClick={() => {
-          onDeletedClick(project.id);
-        }}
-      >
-        X
-      </button>
+
+      <div className="flex gap-2 ml-auto">
+        <button
+          className="mr-3"
+          onClick={() => {
+            onProjectDoneClick(project.id);
+          }}
+        >
+          <MdOutlineDone />
+        </button>
+        <button
+          className="mr-3"
+          onClick={() => {
+            onDeletedClick(project.id);
+          }}
+        >
+          <MdDelete />
+        </button>
+      </div>
     </li>
   );
 }
