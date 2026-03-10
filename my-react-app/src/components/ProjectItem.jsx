@@ -30,7 +30,7 @@ function ProjectItem({ project }) {
       key={project.id}
       className="flex items-center border border-slate-500 dark:border-slate-600 rounded-md py-3 px-4 bg-amber-200 dark:bg-amber-600"
     >
-      <Link className="mr-6" to={`/edit/${project.id}`}>
+      <Link className="mr-6" to={`/editProject/${project.id}`}>
         <FaRegEdit />
       </Link>
 

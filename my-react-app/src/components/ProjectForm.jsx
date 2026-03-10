@@ -9,6 +9,8 @@ function ProjectForm({ mode, projectId }) {
   const { projects, setProjects } = useContext(GlobalContext);
   const [message, setMessage] = useState("");
 
+  console.log({ mode, projectId, projects });
+
   const schema = z.object({
     title: z.string().min(3, "Mínimo 3 caracteres"),
     description: z
@@ -78,8 +80,13 @@ function ProjectForm({ mode, projectId }) {
   }
 
   useEffect(() => {
+    console.log("MODE:", mode);
+    console.log("PROJECT ID:", projectId);
+    console.log("PROJECTS:", projects);
     if (mode === "edit") {
-      const project = projects.find((project) => project.id === projectId);
+      const project = projects.find(
+        (project) => String(project.id) === String(projectId),
+      );
 
       console.log("TASK ENCONTRADA:", project);
       if (project) {

@@ -6,6 +6,7 @@ import About from "./pages/About";
 import ProjectsDetails from "./pages/ProjectsDetails";
 import Statistics from "./pages/Statistics";
 import Edit from "./pages/Edit";
+import EditProject from "./pages/EditProject";
 
 function AppRoutes() {
   return (
@@ -17,6 +18,7 @@ function AppRoutes() {
       <Route path="/about" element={<About />} />
       <Route path="/statistics" element={<Statistics />} />
       <Route path="edit/:id" element={<Edit />} />
+      <Route path="editProject/:id" element={<EditProject />} />
     </Routes>
   );
 }
