@@ -95,7 +95,6 @@ function TaskForm({ mode, projectId, taskId }) {
     if (mode === "edit") {
       const task = tasks.find((task) => task.id === taskId);
 
-      console.log("TASK ENCONTRADA:", task);
       if (task) {
         reset({
           title: task.title,

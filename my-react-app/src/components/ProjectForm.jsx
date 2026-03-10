@@ -80,15 +80,11 @@ function ProjectForm({ mode, projectId }) {
   }
 
   useEffect(() => {
-    console.log("MODE:", mode);
-    console.log("PROJECT ID:", projectId);
-    console.log("PROJECTS:", projects);
     if (mode === "edit") {
       const project = projects.find(
         (project) => String(project.id) === String(projectId),
       );
 
-      console.log("TASK ENCONTRADA:", project);
       if (project) {
         reset({
           title: project.title,

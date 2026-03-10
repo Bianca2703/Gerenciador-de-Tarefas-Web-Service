@@ -34,7 +34,6 @@ function GlobalProvider({ children }) {
     });
     setTasks(newTasks);
   }
-
   //mantém só as tarefas cujo id é diferente do id que eu quero deletar
   /*const newTasks = tasks.filter((task) => task.id != taskId);
     setTasks(newTasks);*/
