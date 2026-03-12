@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, memo } from "react";
 import { GlobalContext } from "../Contexts/GlobalContext";
 import { FaRegEdit } from "react-icons/fa";
 import { MdOutlineDone } from "react-icons/md";
@@ -7,8 +7,7 @@ import { Link } from "react-router-dom";
 //import { IoIosInformationCircleOutline } from "react-icons/io";
 import { IoInformationCircleOutline } from "react-icons/io5";
 
-function TaskItem({ task, showActions = true }) {
-  const { onTaskClick, onDeletedClick } = useContext(GlobalContext);
+function TaskItem({ task, showActions = true, onTaskClick, onDeletedClick }) {
   const [showDetails, setShowDetails] = useState(false);
 
   function onInfoTasks() {
@@ -68,4 +67,4 @@ function TaskItem({ task, showActions = true }) {
   );
 }
 
-export default TaskItem;
+export default memo(TaskItem);

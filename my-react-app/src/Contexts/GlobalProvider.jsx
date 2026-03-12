@@ -1,5 +1,5 @@
 import { GlobalContext } from "./GlobalContext";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 
 function GlobalProvider({ children }) {
   const [tasks, setTasks] = useState([]);
@@ -7,33 +7,38 @@ function GlobalProvider({ children }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   //Marca tarefa como feita
-  function onTaskClick(taskId) {
-    const newTasks = tasks.map((task) => {
-      if (task.id === taskId) {
-        //É essa a tarefa clicada?
-        const isCompletedNow = !task.isCompleted;
+  const onTaskClick = useCallback(
+    (taskId) => {
+      const newTasks = tasks.map((task) => {
+        if (task.id === taskId) {
+          const isCompletedNow = !task.isCompleted;
 
-        return {
-          ...task,
-          isCompleted: isCompletedNow,
-          completedAt: isCompletedNow ? new Date() : null,
-        };
-      }
-      return task;
-    });
-    setTasks(newTasks);
-  }
+          return {
+            ...task,
+            isCompleted: isCompletedNow,
+            completedAt: isCompletedNow ? new Date() : null,
+          };
+        }
+        return task;
+      });
+      setTasks(newTasks);
+    },
+    [tasks],
+  );
 
   //Deleta tarefa
-  function onDeletedClick(taskId) {
-    const newTasks = tasks.map((task) => {
-      if (task.id === taskId) {
-        return { ...task, isDeleted: !task.isDeleted };
-      }
-      return task;
-    });
-    setTasks(newTasks);
-  }
+  const onDeletedClick = useCallback(
+    (taskId) => {
+      const newTasks = tasks.map((task) => {
+        if (task.id === taskId) {
+          return { ...task, isDeleted: !task.isDeleted };
+        }
+        return task;
+      });
+      setTasks(newTasks);
+    },
+    [tasks],
+  );
   //mantém só as tarefas cujo id é diferente do id que eu quero deletar
   /*const newTasks = tasks.filter((task) => task.id != taskId);
     setTasks(newTasks);*/
@@ -71,19 +76,20 @@ function GlobalProvider({ children }) {
     localStorage.setItem("projects", JSON.stringify(projects));
   }, [projects, isLoaded]);
 
+  const value = useMemo(
+    () => ({
+      tasks,
+      setTasks,
+      projects,
+      setProjects,
+      onTaskClick,
+      onDeletedClick,
+    }),
+    [tasks, projects, onTaskClick, onDeletedClick],
+  );
+
   return (
-    <GlobalContext.Provider
-      value={{
-        tasks,
-        setTasks,
-        projects,
-        setProjects,
-        onTaskClick,
-        onDeletedClick,
-      }}
-    >
-      {children}
-    </GlobalContext.Provider>
+    <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>
   );
 }
 
