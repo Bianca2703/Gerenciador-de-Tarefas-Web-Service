@@ -4,24 +4,46 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 function GlobalProvider({ children }) {
   const [tasks, setTasks] = useState([]);
   const [projects, setProjects] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
+
+  //Carrega os dados quando o componente inicia
+  useEffect(() => {
+    fetch("http://localhost:5000/tasks")
+      .then((resp) => resp.json())
+      .then((data) => {
+        setTasks(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/projects")
+      .then((resp) => resp.json())
+      .then((data) => {
+        setProjects(data);
+      });
+  }, []);
 
   //Marca tarefa como feita
   const onTaskClick = useCallback(
     (taskId) => {
-      const newTasks = tasks.map((task) => {
-        if (task.id === taskId) {
-          const isCompletedNow = !task.isCompleted;
+      const task = tasks.find((task) => task.id === taskId);
 
-          return {
-            ...task,
-            isCompleted: isCompletedNow,
-            completedAt: isCompletedNow ? new Date() : null,
-          };
-        }
-        return task;
-      });
-      setTasks(newTasks);
+      fetch(`http://localhost:5000/tasks/${taskId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          isCompleted: !task.isCompleted,
+        }),
+      })
+        .then((resp) => resp.json())
+        .then((updatedTask) => {
+          const newTasks = tasks.map((task) =>
+            task.id === taskId ? updatedTask : task,
+          );
+
+          setTasks(newTasks);
+        });
     },
     [tasks],
   );
@@ -29,52 +51,31 @@ function GlobalProvider({ children }) {
   //Deleta tarefa
   const onDeletedClick = useCallback(
     (taskId) => {
-      const newTasks = tasks.map((task) => {
-        if (task.id === taskId) {
-          return { ...task, isDeleted: !task.isDeleted };
-        }
-        return task;
-      });
-      setTasks(newTasks);
+      const task = tasks.find((task) => task.id === taskId);
+
+      fetch(`http://localhost:5000/tasks/${taskId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          isDeleted: !task.isDeleted,
+        }),
+      })
+        .then((resp) => resp.json())
+        .then((updatedTask) => {
+          const newTasks = tasks.map((task) =>
+            task.id === taskId ? updatedTask : task,
+          );
+
+          setTasks(newTasks);
+        });
     },
     [tasks],
   );
   //mantém só as tarefas cujo id é diferente do id que eu quero deletar
   /*const newTasks = tasks.filter((task) => task.id != taskId);
     setTasks(newTasks);*/
-
-  //recupera os itens
-  useEffect(() => {
-    const saveTasks = localStorage.getItem("tasks");
-    const savedProject = localStorage.getItem("projects");
-
-    if (saveTasks) {
-      setTasks(JSON.parse(saveTasks));
-    }
-
-    if (savedProject) {
-      setProjects(JSON.parse(savedProject));
-    } //se savedProject existir, então execute setproject. Se não, não faça nada.
-
-    setIsLoaded(true);
-  }, []);
-
-  //salva as tasks
-  useEffect(() => {
-    if (!isLoaded) {
-      //se for false não continua
-      return;
-    }
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks, isLoaded]);
-
-  //salva os itens todas vez que projects e isLoaded mudar
-  useEffect(() => {
-    if (!isLoaded) {
-      return;
-    }
-    localStorage.setItem("projects", JSON.stringify(projects));
-  }, [projects, isLoaded]);
 
   const value = useMemo(
     () => ({

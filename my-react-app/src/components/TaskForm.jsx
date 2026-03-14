@@ -5,6 +5,7 @@ import { GlobalContext } from "../Contexts/GlobalContext";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { createTask, updateTask } from "../api/tasksApi";
 
 function TaskForm({ mode, projectId, taskId }) {
   const { tasks, setTasks } = useContext(GlobalContext);
@@ -41,6 +42,7 @@ function TaskForm({ mode, projectId, taskId }) {
   function onSubmitTask(data) {
     //chamada dentro do hanldesubmit
     const newTaskAdd = {
+      //Aqui a tarefa é montada
       id: v4(),
       title: data.title,
       description: data.description,
@@ -51,7 +53,11 @@ function TaskForm({ mode, projectId, taskId }) {
       completedAt: null,
       ...(projectId && { projectId }), //Só adiciona projectId se existir
     };
-    setTasks((prevTasks) => [...prevTasks, newTaskAdd]);
+
+    createTask(newTaskAdd).then((taskCreated) => {
+      setTasks((prev) => [...prev, taskCreated]);
+    });
+
     setMessage("Tarefa criada com sucesso");
     reset();
 
@@ -74,17 +80,22 @@ function TaskForm({ mode, projectId, taskId }) {
 
   //ATUALIZAR TAREFA
   function editTask(data) {
-    const editedtask = tasks.map((task) => {
-      if (task.id === taskId) {
-        const title = data.title;
-        const description = data.description;
-        const category = data.category;
-        return { ...task, title, description, category };
-      } else return task;
+    const updatedTask = {
+      title: data.title,
+      description: data.description,
+      category: data.category,
+    };
+
+    updateTask(taskId, updatedTask).then((taskUpdated) => {
+      const newTasks = tasks.map((task) =>
+        task.id === taskId ? taskUpdated : task,
+      );
+
+      setTasks(newTasks);
     });
-    setTasks(editedtask);
+
     setMessage("Tarefa atualizada com sucesso");
-    reset(); //navigate(-1)
+    reset();
 
     setTimeout(() => {
       setMessage("");
@@ -97,6 +108,7 @@ function TaskForm({ mode, projectId, taskId }) {
 
       if (task) {
         reset({
+          //reseta o formulário para esses valores:
           title: task.title,
           description: task.description,
           category: task.category,

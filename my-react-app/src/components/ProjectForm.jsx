@@ -4,6 +4,7 @@ import { v4 } from "uuid";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { createProject, updateProject } from "../api/projectsApi";
 
 function ProjectForm({ mode, projectId }) {
   const { projects, setProjects } = useContext(GlobalContext);
@@ -36,10 +37,10 @@ function ProjectForm({ mode, projectId }) {
   }); //valida quando o usuário sai do campo
 
   const onSubmit = (data) =>
-    mode === "edit" ? editProject(data) : onAddClick(data);
+    mode === "edit" ? editProject(data) : onSubmitProject(data);
 
   //Adiciona novo Projeto e muda estado de projects
-  function onAddClick(data) {
+  function onSubmitProject(data) {
     const newProjectAdd = {
       id: v4(),
       title: data.title,
@@ -49,7 +50,11 @@ function ProjectForm({ mode, projectId }) {
       createdAt: new Date(),
       completedAt: null,
     };
-    setProjects([...projects, newProjectAdd]);
+
+    createProject(newProjectAdd).then((projectCreated) => {
+      setProjects((prev) => [...prev, projectCreated]);
+    });
+
     setMessage("Projeto criado com sucesso");
     reset();
 
@@ -62,16 +67,21 @@ function ProjectForm({ mode, projectId }) {
 
   //ATUALIZAR PROJETO
   function editProject(data) {
-    const editedProject = projects.map((project) => {
-      if (project.id === projectId) {
-        const title = data.title;
-        const description = data.description;
-        const category = data.category;
-        return { ...project, title, description, category };
-      } else return project;
+    const updatedProject = {
+      title: data.title,
+      description: data.description,
+      category: data.category,
+    };
+
+    updateProject(projectId, updatedProject).then((projectUpdated) => {
+      const newProject = projects.map((project) =>
+        project.id === projectId ? projectUpdated : project,
+      );
+
+      setProjects(newProject);
     });
-    setProjects(editedProject);
-    setMessage("Tarefa atualizada com sucesso");
+
+    setMessage("Projeto atualizado com sucesso");
     reset(); //navigate(-1)
 
     setTimeout(() => {
@@ -103,7 +113,7 @@ function ProjectForm({ mode, projectId }) {
       <input
         {...register("title")}
         type="text"
-        placeholder="Digite sua tarefa..."
+        placeholder="Digite o nome do projeto..."
         className={`border rounded-md px-4 py-2
           ${
             errors.title

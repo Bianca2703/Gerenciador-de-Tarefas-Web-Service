@@ -1,0 +1,66 @@
+{
+  "tasks": [
+    {
+      "id": "60f4348f-ca19-4765-b0eb-98e2e32d0928",
+      "title": "teste",
+      "description": "teste",
+      "category": "trabalho",
+      "isCompleted": true,
+      "isDeleted": true,
+      "createdAt": "2026-03-13T19:47:04.961Z",
+      "completedAt": null
+    },
+    {
+      "id": "0f41e41a-94d0-4252-bdda-ebef1d369ca7",
+      "title": "teste 2 editado",
+      "description": "teste 2",
+      "category": "trabalho",
+      "isCompleted": false,
+      "isDeleted": false,
+      "createdAt": "2026-03-13T19:50:29.289Z",
+      "completedAt": null
+    },
+    {
+      "id": "644d849f-694f-466b-9989-609eb6156ca7",
+      "title": "outro teste",
+      "description": "outro teste descrição",
+      "category": "pessoal",
+      "isCompleted": false,
+      "isDeleted": false,
+      "createdAt": "2026-03-13T22:37:36.506Z",
+      "completedAt": null
+    },
+    {
+      "id": "0335d7be-3d79-40ea-9d73-85408e08369b",
+      "title": "tarefa projeto",
+      "description": "descrição tarefa projeto",
+      "category": "pessoal",
+      "isCompleted": false,
+      "isDeleted": false,
+      "createdAt": "2026-03-14T00:04:10.006Z",
+      "completedAt": null,
+      "projectId": "15fad36c-ff67-42bc-9c70-79f2ab2326ae"
+    }
+  ],
+  "projects": [
+    {
+      "id": "15fad36c-ff67-42bc-9c70-79f2ab2326ae",
+      "title": "projeto teste atualizado",
+      "description": "descrição do projeto teste",
+      "category": "pessoal",
+      "isCompleted": false,
+      "createdAt": "2026-03-13T22:55:23.110Z",
+      "completedAt": null
+    },
+    {
+      "id": "2b24cf0c-6dc5-4d16-8b3f-49f1f4700ba7",
+      "title": "projeto",
+      "description": "projeto descrição",
+      "category": "trabalho",
+      "isCompleted": false,
+      "createdAt": "2026-03-13T23:54:13.840Z",
+      "completedAt": null
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
