@@ -86,3 +86,6 @@ Por isso, algumas funcionalidades que dependem da API podem não funcionar corre
 
 ## Objetivo
 Este projeto foi desenvolvido com o objetivo de desenvolver e aprimorar meus conhecimentos em React e seus conceitos como componentes, hooks, Context API, rotas e gerenciamento de estado, além de noções de frameworks com Tailwind CSS e noções de Web Services.
+
+## 👩‍💻Autora
+Bianca Vitor.
