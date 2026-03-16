@@ -33,17 +33,16 @@ Além disso, o projeto utiliza um Back-End simulado com a biblioteca JSON Server
     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" />
 </div>
 
-##
-
-![preview](./screenshot.png)
+## 📸 Screenshot
+![Interface do gerenciador](https://github.com/user-attachments/assets/b18b8471-0a99-4d8c-b9fe-74fa08ab6245))
 
 ## :hammer: Funcionalidades do projeto
 
 - `Funcionalidade 1`: Adicionar projetos e tarefas, vinculadas ou não a um projeto
 - `Funcionalidade 2`: Adicionar descrição e categoria relacionada à tarefa e/ou projeto
 - `Funcionalidade 3`: Editar e deletar tarefas e projetos existentes
-- `Funcionalidade 3`: Marcar tarefas e projetos como concluídos
-- `Funcionalidade 3`: Alternar entre tema claro e escuro
+- `Funcionalidade 4`: Marcar tarefas e projetos como concluídos
+- `Funcionalidade 5`: Alternar entre tema claro e escuro
 
 ## Estrutura do Projeto
 
@@ -61,7 +60,7 @@ src
 1. Clone o repositório
 
 ```
-git clone https://github.com/seuusuario/gerenciador-tarefas
+git clone https://github.com/Bianca2703/Gerenciador-de-Tarefas-Web-Service.git
 ```
 
 2. Entre na pasta do projeto
