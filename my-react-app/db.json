@@ -1,64 +1,78 @@
 {
   "tasks": [
     {
-      "id": "60f4348f-ca19-4765-b0eb-98e2e32d0928",
-      "title": "teste",
-      "description": "teste",
+      "id": "51e18ac2-935d-4058-b370-fb6dcdd526d3",
+      "title": "fffffffffff",
+      "description": "fffffffffffffff",
+      "category": "pessoal",
+      "isCompleted": false,
+      "isDeleted": true,
+      "createdAt": "2026-03-16T16:38:48.323Z",
+      "completedAt": null,
+      "projectId": null
+    },
+    {
+      "id": "de6dd427-fbf6-4222-ac43-5b13ab060b7c",
+      "title": "rrrrrrrrrr",
+      "description": "rrrrrrrrrrrr",
       "category": "trabalho",
       "isCompleted": true,
       "isDeleted": true,
-      "createdAt": "2026-03-13T19:47:04.961Z",
+      "createdAt": "2026-03-16T16:45:37.313Z",
       "completedAt": null
     },
     {
-      "id": "0f41e41a-94d0-4252-bdda-ebef1d369ca7",
-      "title": "teste 2 editado",
-      "description": "teste 2",
+      "id": "bf04056b-5de4-400f-bf82-6cc9be2bee6b",
+      "title": "tarefa projeto",
+      "description": "ddddddddddd",
+      "category": "pessoal",
+      "isCompleted": true,
+      "isDeleted": true,
+      "createdAt": "2026-03-16T17:27:59.937Z",
+      "completedAt": null,
+      "projectId": null
+    },
+    {
+      "id": "3d8c7dc3-d4c1-44d5-901a-d91cd65cbc78",
+      "title": "ddddddddd",
+      "description": "dddddddddd",
+      "category": "trabalho",
+      "isCompleted": true,
+      "isDeleted": true,
+      "createdAt": "2026-03-16T17:29:00.098Z",
+      "completedAt": null,
+      "projectId": "615339db-98a4-4f3c-ba18-1650f85d1b1e"
+    },
+    {
+      "id": "edb9878b-24c6-47f5-8bdf-aee5fc3c3289",
+      "title": "tttttt",
+      "description": "ddddddddddd",
       "category": "trabalho",
       "isCompleted": false,
-      "isDeleted": false,
-      "createdAt": "2026-03-13T19:50:29.289Z",
+      "isDeleted": true,
+      "createdAt": "2026-03-16T18:01:42.969Z",
       "completedAt": null
     },
     {
-      "id": "644d849f-694f-466b-9989-609eb6156ca7",
-      "title": "outro teste",
-      "description": "outro teste descrição",
+      "id": "794aa307-c2ce-4796-80e1-75629e111f78",
+      "title": "ssssssssssss",
+      "description": "ssssssssssss",
       "category": "pessoal",
-      "isCompleted": false,
+      "isCompleted": true,
       "isDeleted": false,
-      "createdAt": "2026-03-13T22:37:36.506Z",
-      "completedAt": null
-    },
-    {
-      "id": "0335d7be-3d79-40ea-9d73-85408e08369b",
-      "title": "tarefa projeto",
-      "description": "descrição tarefa projeto",
-      "category": "pessoal",
-      "isCompleted": false,
-      "isDeleted": false,
-      "createdAt": "2026-03-14T00:04:10.006Z",
+      "createdAt": "2026-03-16T18:02:47.916Z",
       "completedAt": null,
-      "projectId": "15fad36c-ff67-42bc-9c70-79f2ab2326ae"
+      "projectId": "615339db-98a4-4f3c-ba18-1650f85d1b1e"
     }
   ],
   "projects": [
     {
-      "id": "15fad36c-ff67-42bc-9c70-79f2ab2326ae",
-      "title": "projeto teste atualizado",
-      "description": "descrição do projeto teste",
-      "category": "pessoal",
-      "isCompleted": false,
-      "createdAt": "2026-03-13T22:55:23.110Z",
-      "completedAt": null
-    },
-    {
-      "id": "2b24cf0c-6dc5-4d16-8b3f-49f1f4700ba7",
-      "title": "projeto",
-      "description": "projeto descrição",
+      "id": "615339db-98a4-4f3c-ba18-1650f85d1b1e",
+      "title": "dddddddddddd",
+      "description": "ddddddddddddd",
       "category": "trabalho",
       "isCompleted": false,
-      "createdAt": "2026-03-13T23:54:13.840Z",
+      "createdAt": "2026-03-16T17:28:40.196Z",
       "completedAt": null
     }
   ],

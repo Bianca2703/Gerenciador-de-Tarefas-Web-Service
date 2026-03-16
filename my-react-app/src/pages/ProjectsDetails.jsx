@@ -8,7 +8,9 @@ function ProjectsDetails() {
   const { id } = useParams();
   const { tasks, projects } = useContext(GlobalContext);
 
-  const filteredTasks = tasks.filter((task) => task.projectId === id); //Se estiver dentro de um projeto, filtra pelo projectId | mostra apenas as tarefas daquele projeto
+  const filteredTasks = tasks.filter(
+    (task) => task.projectId === id && task.isDeleted == false,
+  ); //Se estiver dentro de um projeto, filtra pelo projectId | mostra apenas as tarefas daquele projeto
   //percorre todas as tasks e entrega as tasks cujo projectId é igual ao id da URL
   console.log("projects:", projects);
   const project = projects.find((project) => project.id === String(id)); //find porque quero apenas um resultado

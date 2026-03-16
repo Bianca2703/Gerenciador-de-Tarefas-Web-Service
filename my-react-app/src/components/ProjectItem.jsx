@@ -1,10 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useCallback } from "react";
 import { GlobalContext } from "../Contexts/GlobalContext";
 import { Link } from "react-router-dom";
 import { FaRegEdit } from "react-icons/fa";
 import { MdOutlineDone } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { IoInformationCircleOutline } from "react-icons/io5";
+import { deleteProject } from "../api/projectsApi";
 
 function ProjectItem({ project }) {
   const { projects, setProjects } = useContext(GlobalContext);
@@ -23,8 +24,12 @@ function ProjectItem({ project }) {
 
   //Deleta projeto
   function onDeletedClick(projectId) {
-    const newProjects = projects.filter((project) => project.id !== projectId);
-    setProjects(newProjects);
+    deleteProject(projectId).then(() => {
+      const newProjects = projects.filter(
+        (project) => project.id !== projectId,
+      );
+      setProjects(newProjects);
+    });
   }
 
   function onInfoTasks() {
