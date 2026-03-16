@@ -1,78 +1,119 @@
 {
   "tasks": [
     {
-      "id": "51e18ac2-935d-4058-b370-fb6dcdd526d3",
-      "title": "fffffffffff",
-      "description": "fffffffffffffff",
-      "category": "pessoal",
-      "isCompleted": false,
+      "id": "3fc5cdfa-6657-4056-9b87-4b3512c4e26b",
+      "title": "Estudar React Hooks",
+      "description": "Revisar conceitos de useState, useEffect e useCallback",
+      "category": "estudo",
+      "isCompleted": true,
       "isDeleted": true,
-      "createdAt": "2026-03-16T16:38:48.323Z",
+      "createdAt": "2026-03-16T19:25:36.685Z",
+      "completedAt": null
+    },
+    {
+      "id": "f0b72db3-579b-4ef7-a5b2-d619e1a5bb58",
+      "title": "Revisar Javascript",
+      "description": "Praticar exercícios",
+      "category": "estudo",
+      "isCompleted": true,
+      "isDeleted": true,
+      "createdAt": "2026-03-16T19:27:47.782Z",
       "completedAt": null,
       "projectId": null
     },
     {
-      "id": "de6dd427-fbf6-4222-ac43-5b13ab060b7c",
-      "title": "rrrrrrrrrr",
-      "description": "rrrrrrrrrrrr",
+      "id": "2b91a90d-73a4-4de1-9096-b809c6cd23a9",
+      "title": "Avançar no projeto de React",
+      "description": "Implementar a funcionalidade de edição de tarefas",
       "category": "trabalho",
       "isCompleted": true,
       "isDeleted": true,
-      "createdAt": "2026-03-16T16:45:37.313Z",
-      "completedAt": null
-    },
-    {
-      "id": "bf04056b-5de4-400f-bf82-6cc9be2bee6b",
-      "title": "tarefa projeto",
-      "description": "ddddddddddd",
-      "category": "pessoal",
-      "isCompleted": true,
-      "isDeleted": true,
-      "createdAt": "2026-03-16T17:27:59.937Z",
+      "createdAt": "2026-03-16T19:28:29.484Z",
       "completedAt": null,
       "projectId": null
     },
     {
-      "id": "3d8c7dc3-d4c1-44d5-901a-d91cd65cbc78",
-      "title": "ddddddddd",
-      "description": "dddddddddd",
-      "category": "trabalho",
-      "isCompleted": true,
-      "isDeleted": true,
-      "createdAt": "2026-03-16T17:29:00.098Z",
-      "completedAt": null,
-      "projectId": "615339db-98a4-4f3c-ba18-1650f85d1b1e"
-    },
-    {
-      "id": "edb9878b-24c6-47f5-8bdf-aee5fc3c3289",
-      "title": "tttttt",
-      "description": "ddddddddddd",
-      "category": "trabalho",
+      "id": "3a4efdfc-6abf-4a33-a697-1f37aa287da8",
+      "title": "Organizar semana de estudos",
+      "description": "Planejar e acompanhar as atividades da semana",
+      "category": "pessoal",
       "isCompleted": false,
       "isDeleted": true,
-      "createdAt": "2026-03-16T18:01:42.969Z",
+      "createdAt": "2026-03-16T19:38:33.760Z",
+      "completedAt": null,
+      "projectId": null
+    },
+    {
+      "id": "eeb42fb1-826f-4bae-94ec-d8dd97fe6913",
+      "title": "Estudar React Hooks",
+      "description": "Revisar os conceitos de useState e useEffect",
+      "category": "estudo",
+      "isCompleted": true,
+      "isDeleted": true,
+      "createdAt": "2026-03-16T19:40:36.318Z",
       "completedAt": null
     },
     {
-      "id": "794aa307-c2ce-4796-80e1-75629e111f78",
-      "title": "ssssssssssss",
-      "description": "ssssssssssss",
-      "category": "pessoal",
-      "isCompleted": true,
+      "id": "37c5da52-90ef-4b44-9c6b-d628920e6751",
+      "title": "Revisar javascript",
+      "description": "Praticar exercícios de arrays e funções",
+      "category": "estudo",
+      "isCompleted": false,
       "isDeleted": false,
-      "createdAt": "2026-03-16T18:02:47.916Z",
+      "createdAt": "2026-03-16T19:45:11.506Z",
       "completedAt": null,
-      "projectId": "615339db-98a4-4f3c-ba18-1650f85d1b1e"
+      "projectId": "449d9dbc-abcf-4926-bade-01557ae0005d"
+    },
+    {
+      "id": "2c596825-022d-4178-9e5b-596c87789a8d",
+      "title": "Avançar no projeto de React",
+      "description": "Implementar a funcionalidade de edição de tarefas ",
+      "category": "estudo",
+      "isCompleted": false,
+      "isDeleted": false,
+      "createdAt": "2026-03-16T19:45:43.695Z",
+      "completedAt": null,
+      "projectId": "449d9dbc-abcf-4926-bade-01557ae0005d"
+    },
+    {
+      "id": "727e86ea-f914-4da3-b657-95425ebfa70a",
+      "title": "Revisar Python",
+      "description": "Resolver exercícios",
+      "category": "estudo",
+      "isCompleted": false,
+      "isDeleted": false,
+      "createdAt": "2026-03-16T19:46:31.891Z",
+      "completedAt": null
+    },
+    {
+      "id": "ae25bfbf-a3c8-4874-8a08-df8fdfd8df84",
+      "title": "Estudar React Hooks",
+      "description": "Revisar conceitos de useState",
+      "category": "estudo",
+      "isCompleted": true,
+      "isDeleted": true,
+      "createdAt": "2026-03-16T19:47:19.408Z",
+      "completedAt": null
+    },
+    {
+      "id": "12c48c37-4e27-4d51-b9ef-b0f414207be6",
+      "title": "Estudar React Hook",
+      "description": "Revisar useState",
+      "category": "estudo",
+      "isCompleted": true,
+      "isDeleted": true,
+      "createdAt": "2026-03-16T19:53:20.563Z",
+      "completedAt": null
     }
   ],
   "projects": [
     {
-      "id": "615339db-98a4-4f3c-ba18-1650f85d1b1e",
-      "title": "dddddddddddd",
-      "description": "ddddddddddddd",
-      "category": "trabalho",
+      "id": "449d9dbc-abcf-4926-bade-01557ae0005d",
+      "title": "Organizar semana de estudos",
+      "description": "Planejar e acompanhar as principais atividades de estudo da semana",
+      "category": "pessoal",
       "isCompleted": false,
-      "createdAt": "2026-03-16T17:28:40.196Z",
+      "createdAt": "2026-03-16T19:44:11.443Z",
       "completedAt": null
     }
   ],

@@ -70,7 +70,8 @@ function TaskForm({ mode, projectId, taskId }) {
 
   //Quantidade de tarefas pendentes
   const pendingTasks = tasks.filter(
-    (task) => task.isCompleted === false,
+    (task) =>
+      task.isCompleted === false && !task.projectId && task.isDeleted === false,
   ).length;
 
   //Responsável por mudar o título da página cada vez que pendingTasks mudar
