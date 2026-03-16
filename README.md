@@ -3,7 +3,9 @@
 </p>
 
 # Gerenciador de Tarefas e Projetos
+
 Projeto desenvolvido como trabalho final do curso de Desenvolvimento Front-End com React. Este Gerenciador permite ao usuário administrar tarefas e projetos de forma organizada e prática, facilitando o planejamento das atividades da semana. O sistema conta com as seguintes páginas:
+
 - **Home** – exibe as tarefas isoladas
 - **Projetos** – exibe os projetos e suas tarefas
 - **Feitos** – exibe o histórico de tarefas concluídas
@@ -12,7 +14,8 @@ Projeto desenvolvido como trabalho final do curso de Desenvolvimento Front-End c
 
 Além disso, o projeto utiliza um Back-End simulado com a biblioteca JSON Server, para fins de aprendizado sobre APIs e Web Services.
 
-## Tecnologias 
+## Tecnologias
+
 <div>
   <img align="center" height="40" width="40"
     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
@@ -35,6 +38,7 @@ Além disso, o projeto utiliza um Back-End simulado com a biblioteca JSON Server
 ![preview](./screenshot.png)
 
 ## :hammer: Funcionalidades do projeto
+
 - `Funcionalidade 1`: Adicionar projetos e tarefas, vinculadas ou não a um projeto
 - `Funcionalidade 2`: Adicionar descrição e categoria relacionada à tarefa e/ou projeto
 - `Funcionalidade 3`: Editar e deletar tarefas e projetos existentes
@@ -55,23 +59,32 @@ src
 ## Como executar o projeto
 
 1. Clone o repositório
+
 ```
 git clone https://github.com/seuusuario/gerenciador-tarefas
 ```
+
 2. Entre na pasta do projeto
+
 ```
 cd gerenciador-tarefas
 cd my-react-app
 ```
+
 3. Instale as dependências
+
 ```
 npm install
 ```
+
 4. Execute o projeto
+
 ```
 npm run dev
 ```
+
 5. Em outro terminal, execute o backend simulado
+
 ```
 npm run backend
 ```
@@ -81,11 +94,13 @@ npm run backend
 Acesse a aplicação:  
 [https://gerenciador-de-tarefas-web-service.vercel.app](https://gerenciador-de-tarefas-web-service.vercel.app/)
 
-⚠️ Observação: este projeto utiliza um backend simulado com JSON Server executado localmente. 
+⚠️ Observação: este projeto utiliza um backend simulado com JSON Server executado localmente.
 Por isso, algumas funcionalidades que dependem da API podem não funcionar corretamente na versão publicada.
 
 ## Objetivo
+
 Este projeto foi desenvolvido com o objetivo de desenvolver e aprimorar meus conhecimentos em React e seus conceitos como componentes, hooks, Context API, rotas e gerenciamento de estado, além de noções de frameworks com Tailwind CSS e noções de Web Services.
 
 ## 👩‍💻Autora
+
 Bianca Vitor.
