@@ -34,7 +34,7 @@ Além disso, o projeto utiliza um Back-End simulado com a biblioteca JSON Server
 </div>
 
 ## 📸 Screenshot
-![Interface do gerenciador](https://github.com/user-attachments/assets/b18b8471-0a99-4d8c-b9fe-74fa08ab6245))
+![Interface do gerenciador](https://github.com/user-attachments/assets/b18b8471-0a99-4d8c-b9fe-74fa08ab6245)
 
 ## :hammer: Funcionalidades do projeto
 
