@@ -2,8 +2,14 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0ea5e9,100:6366f1&height=200&section=header&text=Gerenciador%20de%20Tarefas%20e%20Projetos&fontSize=40&fontColor=ffffff"/>
 </p>
 
-# Gerenciador de Tarefas e Projetos
+# Gerenciador de Tarefas e Projetos (Versão com API)
+> 🚀 Versão principal do projeto, utilizando API simulada com JSON Server.
 
+Este projeto é uma evolução da versão inicial com LocalStorage, agora implementando uma arquitetura mais próxima de aplicações reais, com consumo de API REST.
+
+🔗 Versão simples: https://github.com/Bianca2703/Gerenciador-de-Tarefas
+
+##
 Projeto desenvolvido como trabalho final do curso de Desenvolvimento Front-End com React. Este Gerenciador permite ao usuário administrar tarefas e projetos de forma organizada e prática, facilitando o planejamento das atividades da semana. O sistema conta com as seguintes páginas:
 
 - **Home** – exibe as tarefas isoladas
@@ -35,6 +41,11 @@ Além disso, o projeto utiliza um Back-End simulado com a biblioteca JSON Server
 
 ## 📸 Screenshot
 ![Interface do gerenciador](https://github.com/user-attachments/assets/b18b8471-0a99-4d8c-b9fe-74fa08ab6245)
+
+## 🧪 Evolução do projeto
+
+- ✅ Versão 1: LocalStorage
+- 🚀 Versão 2: Integração com API (JSON Server)
 
 ## :hammer: Funcionalidades do projeto
 
