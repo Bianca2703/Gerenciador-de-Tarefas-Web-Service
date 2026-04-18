@@ -81,7 +81,7 @@
       "description": "Resolver exercícios",
       "category": "estudo",
       "isCompleted": false,
-      "isDeleted": false,
+      "isDeleted": true,
       "createdAt": "2026-03-16T19:46:31.891Z",
       "completedAt": null
     },
@@ -103,6 +103,26 @@
       "isCompleted": true,
       "isDeleted": true,
       "createdAt": "2026-03-16T19:53:20.563Z",
+      "completedAt": null
+    },
+    {
+      "id": "938ce81a-02c3-4fde-baa3-fc045238f051",
+      "title": "tarefa 1",
+      "description": "descrição tarefa 1",
+      "category": "pessoal",
+      "isCompleted": false,
+      "isDeleted": true,
+      "createdAt": "2026-04-18T14:35:49.860Z",
+      "completedAt": null
+    },
+    {
+      "id": "92701cb4-5639-4ef3-bdc3-5d73bdc92090",
+      "title": "tarefa",
+      "description": "teste ",
+      "category": "pessoal",
+      "isCompleted": false,
+      "isDeleted": true,
+      "createdAt": "2026-04-18T14:38:25.673Z",
       "completedAt": null
     }
   ],
